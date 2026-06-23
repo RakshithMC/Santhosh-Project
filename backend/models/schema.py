@@ -6,7 +6,6 @@ class GridModel(BaseModel):
 
 class SolveRequest(BaseModel):
     grid: List[List[int]] = Field(..., min_items=9, max_items=9)
-    algorithm: str = "dfs"  # "dfs" or "bfs"
 
 class SolveResponse(BaseModel):
     success: bool
@@ -15,9 +14,6 @@ class SolveResponse(BaseModel):
     backtracks: int
     solved_grid: Optional[List[List[int]]] = None
     exploration_steps: List[Dict[str, Any]]
-    max_depth: Optional[int] = None
-    max_queue_size: Optional[int] = None
-    limit_exceeded: Optional[bool] = None
 
 class SamplePuzzle(BaseModel):
     name: str
